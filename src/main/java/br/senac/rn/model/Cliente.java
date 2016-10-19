@@ -42,7 +42,7 @@ public class Cliente implements PersistDB {
     }
 
     public String getCpf() {
-        return cpf;
+        return cpf;//.replace(".","").replace("-", "");
     }
 
     public void setCpf(String cpf) {

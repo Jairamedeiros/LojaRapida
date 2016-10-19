@@ -19,22 +19,49 @@
                         <br/>
                         <p:inputText value="#{clienteMBean.cliente.nome}"
                                      requiredMessage="Campo nome obrigatório"
-                                     validatorMessage="Campo nome não pode passar de 200 caracteres">
-                        <f:validateLength maximum="200"/>
+                                     validatorMessage="Campo nome não pode passar de 100 caracteres" size="70">
+                        <f:validateLength maximum="100"/>
                         </p:inputText>
                         <br/>
+                        
+                        
+                                                
                         <p:outputLabel value="Email:"/>
                         <br/>
-                        <p:inputTextarea value="#{clienteMBean.cliente.email}"
-                                         rows="3"
-                                         cols="50"
-                                         counter="display"
-                                         counterTemplate="Restam {0} caracteres"
-                                         autoResize="false"
-                                         maxlength="250"/>
+                        <p:inputText value="#{clienteMBean.cliente.email}"
+                                     requiredMessage="Campo email obrigatório"
+                                     validatorMessage="Campo email não pode passar de 100 caracteres" 
+                                     size="70"
+                                     maxlength="100">             
+                        </p:inputText>
                         <br/>
-                        <h:outputText id="display"/>
+                        
+                                           
+                        
+                        <p:outputLabel value="Cpf:"/>
                         <br/>
+                                               
+                        <p:inputMask value="#{clienteMBean.cliente.cpf}"
+                                     requiredMessage="Campo cpf obrigatório"
+                                     validatorMessage="Campo cpf" size="20"
+                                     mask="999.999.999-99"/>
+                         <br/>
+                                                
+                        
+                         
+                         <p:outputLabel value="Senha:"/>
+                        <br/>
+                         
+                        
+                        <p:password
+                            value="#{clienteMBean.cliente.senha}"
+                            requiredMessage="Campo senha obrigatório"
+                            validatorMessage="Campo senha não pode passar de 15 caracteres" size="20" />
+                            
+                        <br/>   
+                                                   
+                        
+              
                         <p:commandButton value="SALVAR" icon="ui-icon-mail-closed" ajax= "false" action="#{clienteMBean.salvar}"/>
                     </p:panelGrid>
                 </h:form>
@@ -51,7 +78,7 @@
                     <h:outputText value="#{cliente.nome}"/>
                 </p:column>
                 
-                <p:column headerText="Descrição" footerText="Descrição">
+                <p:column headerText="Email" footerText="Email">
                     <h:outputText value="#{cliente.email}"/>
                 </p:column>
                 
@@ -59,9 +86,7 @@
                     <p:commandButton icon="ui-icon-search" ajax="false" action="#{clienteMBean.selecionar(cliente)}"/>
                     <p:commandButton icon="ui-icon-trash" ajax="false" action="#{clienteMBean.deletar(cliente)}" onclick="return confirm('Excluir?')"/>
                 </p:column>
-                
-                
-                
+               
             </p:dataTable>
                 </h:form>
                 </p:tab>
